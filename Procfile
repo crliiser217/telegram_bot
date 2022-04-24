@@ -1,1 +1,1 @@
-worker: python create_bot.py
+web: python bot_telegram.py
