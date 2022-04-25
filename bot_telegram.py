@@ -2,14 +2,14 @@ import os
 
 from aiogram.utils import executor
 
-import config
 from create_bot import dp, bot
 from data_base import sqlite_db
 from data_base import sqliteVoiting_db
 
 async def on_startup(dp):
     sqlite_db.sqk_start()
-    await bot.set_webhook(config.URL_APP)
+    sqliteVoiting_db.sqk_start()
+    await bot.set_webhook(os.environ.get('URL_APP'))
 
 async def on_shutdown(dp):
     await sqlite_db.ps_off()

@@ -1,5 +1,4 @@
 import os
-import sqlite3 as sq
 from create_bot import bot
 import psycopg2 as ps
 
