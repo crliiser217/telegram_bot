@@ -12,8 +12,9 @@ async def on_startup(dp):
     await bot.set_webhook(config.URL_APP)
 
 async def on_shutdown(dp):
+    await sqlite_db.ps_off()
     await bot.delete_webhook()
-    sqlite_db.ps_off()
+
 
     #sqlite_db.sqk_start()
     #sqliteVoiting_db.sqk_start()

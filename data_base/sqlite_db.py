@@ -16,7 +16,7 @@ def sqk_start():
 
 async def sql_add_command(state):
     async with state.proxy() as data:
-        cur.execute('INSERT INTO catalog VALUES (?, ?, ?, ?)', tuple(data.values()))
+        cur.execute('INSERT INTO catalog VALUES (%s, %s, %s, %s)', tuple(data.values()))
         base.commit()
 
 
