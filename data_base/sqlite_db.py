@@ -1,13 +1,16 @@
+import os
 import sqlite3 as sq
 from create_bot import bot
+import psycopg2 as ps
+
 
 def sqk_start():
     global base, cur
-    base = sq.connect('my_baza.db')
+    base = ps.connect(os.environ.get('DATABASE_URL'), sslmode='require')
     cur = base.cursor()
     if base:
         print('Data base connected OK')
-    base.execute('CREATE TABLE IF NOT EXISTS catalog(img TEXT, name TEXT PRIMARY KEY, description TEXT, price TEXT)')
+    cur.execute('CREATE TABLE IF NOT EXISTS catalog(img TEXT, name TEXT PRIMARY KEY, description TEXT, price TEXT)')
     base.commit()
 
 
@@ -28,3 +31,7 @@ async def sql_read_for_del():
 async def sql_delete_elem(data):
     cur.execute('DELETE FROM catalog WHERE name == ?', (data,))
     base.commit()
+
+async def ps_off():
+    cur.close()
+    base.close()
