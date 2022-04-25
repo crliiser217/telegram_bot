@@ -1,6 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-
+# Создание кнопок для администратора
+# Создание кнопок для администратора
 button_load = KeyboardButton('/Загрузить')
 button_delete = KeyboardButton('/Удалить')
 

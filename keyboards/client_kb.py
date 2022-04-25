@@ -1,5 +1,6 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
+# Создание кнопок для клиента
 b1 = KeyboardButton('/Информация')
 b2 = KeyboardButton('/Адрес')
 b3 = KeyboardButton('/Каталог')
