@@ -13,14 +13,14 @@ def sqk_start():
 
 async def sql_add_command(state):
     async with state.proxy() as data:
-        cur.execute('INSERT INTO answ VALUES (%s)', (data,))
+        cur.execute('INSERT INTO ans VALUES (%s)', (data,))
         base.commit()
 
 
 async def sql_read(message):
     likes = 0
     dislikes = 0
-    cur.execute('SELECT * FROM answ')
+    cur.execute('SELECT * FROM ans')
     for ret in cur.fetchall():
         if ret[0] == '1':
             likes += 1
