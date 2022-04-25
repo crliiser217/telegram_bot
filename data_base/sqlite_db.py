@@ -30,9 +30,14 @@ async def sql_read_for_del():
     cur.execute('SELECT * FROM catalog')
     return cur.fetchall()
 
+
 async def sql_delete_elem(data):
-    cur.execute('DELETE FROM catalog WHERE name == %s', (data,))
-    base.commit()
+    try:
+        cur.execute('DELETE FROM catalog WHERE name == %s', (data,))
+        base.commit()
+    except:
+        base.rollback()
+
 
 async def ps_off():
     cur.close()
