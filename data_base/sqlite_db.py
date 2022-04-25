@@ -21,12 +21,14 @@ async def sql_add_command(state):
 
 
 async def sql_read(message):
-    for ret in cur.execute('SELECT * FROM catalog').fetchall():
+    cur.execute('SELECT * FROM catalog')
+    for ret in cur.fetchall():
         await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена: {ret[-1]}')
 
 
 async def sql_read_for_del():
-    return cur.execute('SELECT * FROM catalog').fetchall()
+    cur.execute('SELECT * FROM catalog')
+    return cur.fetchall()
 
 async def sql_delete_elem(data):
     cur.execute('DELETE FROM catalog WHERE name == ?', (data,))
