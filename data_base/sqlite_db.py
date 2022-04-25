@@ -10,7 +10,7 @@ def sqk_start():
     if base:
         print('Data base connected OK')
     cur.execute('CREATE TABLE IF NOT EXISTS catalog(img TEXT, name TEXT PRIMARY KEY, description TEXT, price TEXT)')
-    cur.execute('CREATE TABLE IF NOT EXISTS answ(like TEXT,);')
+    cur.execute('CREATE TABLE IF NOT EXISTS answ(like TEXT);')
     base.commit()
 
 
