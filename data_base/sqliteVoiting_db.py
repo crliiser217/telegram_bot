@@ -8,8 +8,7 @@ def sqk_start():
     cur = base.cursor()
     if base:
         print('Data base for voiting connected OK')
-    cur.execute('CREATE TABLE IF NOT EXISTS answ(like TEXT)')
-    base.commit()
+    
 
 
 async def sql_add_command(state):
