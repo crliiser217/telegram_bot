@@ -8,12 +8,12 @@ from data_base import sqlite_db
 from data_base import sqliteVoiting_db
 
 async def on_startup(dp):
-    await sqlite_db.sqk_start()
+    sqlite_db.sqk_start()
     await bot.set_webhook(config.URL_APP)
 
 async def on_shutdown(dp):
     await bot.delete_webhook()
-    await sqlite_db.ps_off()
+    sqlite_db.ps_off()
 
     #sqlite_db.sqk_start()
     #sqliteVoiting_db.sqk_start()
